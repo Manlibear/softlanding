@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>DedalusWeb Story</title>
@@ -10,7 +11,8 @@
 
     <link rel="stylesheet" href="css/story.css">
 
- </head>
+</head>
+
 <body>
     <div id="story">
 
@@ -36,7 +38,7 @@
         </afterEveryParagraphShown>
 
         <!-- Novel -->
-        <title>Empty story</title>
+        <title>9 Light Minutes</title>
 
         <!-- Objects -->
         <obj id="dummyObject" inventoryName="An object">
@@ -46,32 +48,56 @@
 
             <action id="Get">
                 <when>!story.isInInventory('dummyObject')</when>
-                As you try to get it... It is clear that the inventory works!
-                {{ story.putInInventory('dummyObject'); }}
+                As you try to get it... It is clear that the inventory works! {{ story.putInInventory('dummyObject'); }}
             </action>
 
         </obj>
 
         <!-- Pages -->
+
         <page id="intro">
-            You are about to experience the most amazing empty story ever...
+
+            <p>
+                [00d00h00m34s]
+            </p>
+
+            <p>9 minutes. That's how long it'll be before they even realise something has gone wrong...</p>
+
+            <p>Another 9 for them to tell me that saw that something went wrong.</p>
+
+            <p>That's the problem with interplanetary travel, over extreme distances communication devolves to that of penpals. So when I need to ask for help, for instance with a pressure leak that just destroyed half the ship, I have to think of questions
+                18 minutes before I need the answer.</p>
+
+            <p>
+                <turn to="00d00h05m03s">[End Message]</turn>
+            </p>
+
         </page>
 
-        <page id="dummyPage" class="first">
-            You are in an empty page except for a <show paragraph="dummyParagraph">paragraph</show>.
+        <page id="00d00h05m03s">
+            <p>
+                [00d00h05m03s]
+            </p>
+            <p>So, time to take stock. We left earth with: </p>
+            <ul>
+                <li>Alice Martinez - <b>Payload Commander</b></li>
+                <li>Rich Purnell - <b>Flight Engineer</b></li>
+                <li>Thom McKennor - <b>Pilot</b></li>
+                <li>Ulf Merbold - <b>Payload Specialist</b></li>
+            </ul>
+            <p>Given the events of the last few minutes, I have recevied a multitude of (albeit very temporary) promotions, so I needed to make a multitude of (albeit very unhelpful) observations. The ship is terminal, having checked over things it's nothing. I can fix. My 3 priorities are
+                <show paragraph="air">air</show>, <show paragraph="power">power</show> and <show paragraph="damageControl">damage control</show>.  
+            </p>
 
-            <p>Quite unsurprisingly, there is even an <interact with="dummyObject">object</interact> lying around.</p>
-
-            <p>Looking around with more attention, you notice <turn to="otherPage">another page</turn></p>
-
-            <paragraph id="dummyParagraph">
-                Seiously, What did you expect?
+            <paragraph id="air">
+                <p>[Air]</p>
+                
+                <p>Air is the most pressing need. Large sections of the ship were depressurized and although there's an emergency cut off system in place, it's not instant, so the life support sytems will have tried to counter the loss in pressure by pumping more air into the ship. On the bright side, one of the benefits of my recent career advancement is no longer having to share workplace perks -  like air. </p>
+                
+                <p>The AI claims that I have 19 hours of air left. That's for 5 people, so with just me that's 95 hours, I've also been told that the AI is 10% cautious for these sorts of things, so I may be looking at another 10~ hours.</p>
+                
+                
             </paragraph>
-        </page>
-
-        <page id="otherPage">
-            Plot twist! The story ends abruptly.
-            {{ story.endGame(); }}
         </page>
 
     </div>
@@ -96,21 +122,21 @@
     </div>
 
     <script>
-        $(function () {
+        $(function() {
             new DedalusWeb({
-                domSource         : $('#story'),
-                domTarget         : $('#host'),
-                titleTarget       : $('#title'),
-                inventoryTarget   : $('#inventoryHost'),
-                interactionTarget : $('#interactionHost'),
-                undoTarget        : $('#undoHost'),
-                undoStageTarget   : $('#undoStageHost'),
-                saveTarget        : $('#saveHost'),
-                restoreTarget     : $('#restoreHost'),
-                resetTarget       : $('#reseteHost'),
+                domSource: $('#story'),
+                domTarget: $('#host'),
+                titleTarget: $('#title'),
+                inventoryTarget: $('#inventoryHost'),
+                interactionTarget: $('#interactionHost'),
+                undoTarget: $('#undoHost'),
+                undoStageTarget: $('#undoStageHost'),
+                saveTarget: $('#saveHost'),
+                restoreTarget: $('#restoreHost'),
+                resetTarget: $('#reseteHost'),
             });
         });
-
     </script>
 </body>
+
 </html>
